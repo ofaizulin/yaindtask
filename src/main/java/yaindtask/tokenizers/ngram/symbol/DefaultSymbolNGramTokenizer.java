@@ -3,7 +3,6 @@ package yaindtask.tokenizers.ngram.symbol;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import yaindtask.tokenizers.Token;
 import yaindtask.tokenizers.TokenPosition;
 import yaindtask.tokenizers.ngram.NGramToken;
 
@@ -20,7 +19,7 @@ public class DefaultSymbolNGramTokenizer implements SymbolNGramTokenizer {
   }
 
   @Override
-  public List<? extends Token> tokenize(String text) {
+  public List<NGramToken> tokenize(String text) {
 
     var tokens = new LinkedHashMap<String, List<TokenPosition>>();
 
