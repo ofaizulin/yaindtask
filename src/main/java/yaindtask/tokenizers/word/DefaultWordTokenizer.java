@@ -1,5 +1,6 @@
 package yaindtask.tokenizers.word;
 
+import java.util.ArrayList;
 import java.util.List;
 import yaindtask.tokenizers.Token;
 import yaindtask.tokenizers.TokenizerUtils;
@@ -28,5 +29,12 @@ public class DefaultWordTokenizer implements WordTokenizer {
       result = filter.filter(token);
     }
     return TokenizerUtils.deduplicate(result);
+  }
+
+  @Override
+  public WordTokenizer withExtraFilter(TokenFilter filter) {
+    var filters = new ArrayList<>(this.filters);
+    filters.add(filter);
+    return new DefaultWordTokenizer(filters);
   }
 }
