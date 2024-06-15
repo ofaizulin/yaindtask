@@ -33,8 +33,6 @@ public class PositionSymbolFrequencyAnalyzer implements Analyzer {
       }
     }
 
-    return new AnalysisResult(new String[]{
-        "Symbol", "Symbol Code", "Frequency"
-    }, result);
+    return new AnalysisResult(new String[]{"Symbol", "Symbol Code", "Frequency"}, result);
   }
 }

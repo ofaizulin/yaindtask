@@ -22,8 +22,6 @@ public class PositionsSymbolAnalyzer implements Analyzer {
       }
     }
 
-    return new AnalysisResult(new String[]{
-        "Position"
-    }, positions);
+    return new AnalysisResult(new String[]{"Position"}, positions);
   }
 }
