@@ -9,6 +9,10 @@ public record Token(String text, List<TokenPosition> positions) {
     this(text, List.of(new TokenPosition(0, text.length())));
   }
 
+  public Token(String text, int positionStartInclusive, int positionEndExclusive){
+    this(text, List.of(new TokenPosition(positionStartInclusive, positionEndExclusive)));
+  }
+
   public Token(String text, TokenPosition... tokenPosition) {
     this(text, Arrays.asList(tokenPosition));
   }
