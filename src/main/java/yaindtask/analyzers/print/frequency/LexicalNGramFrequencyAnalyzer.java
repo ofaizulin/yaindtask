@@ -5,8 +5,8 @@ import static yaindtask.analyzers.AnalysisResult.of;
 
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
-import yaindtask.tokenizers.lexicalngram.LexicalNGramTokenizer;
-import yaindtask.tokenizers.lexicalngram.impl.DefaultLexicalNGramTokenizer;
+import yaindtask.tokenizers.ngram.lexical.LexicalNGramTokenizer;
+import yaindtask.tokenizers.ngram.lexical.DefaultLexicalNGramTokenizer;
 
 public class LexicalNGramFrequencyAnalyzer implements Analyzer {
 

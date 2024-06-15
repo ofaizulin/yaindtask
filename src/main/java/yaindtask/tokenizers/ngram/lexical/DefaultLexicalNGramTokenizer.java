@@ -1,4 +1,4 @@
-package yaindtask.tokenizers.lexicalngram.impl;
+package yaindtask.tokenizers.ngram.lexical;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import yaindtask.tokenizers.Token;
 import yaindtask.tokenizers.TokenPosition;
-import yaindtask.tokenizers.lexicalngram.LexicalNGramToken;
-import yaindtask.tokenizers.lexicalngram.LexicalNGramTokenizer;
+import yaindtask.tokenizers.ngram.NGramToken;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 import yaindtask.util.tuples.T2;
@@ -33,12 +32,12 @@ public class DefaultLexicalNGramTokenizer implements LexicalNGramTokenizer {
   }
 
   @Override
-  public List<LexicalNGramToken> tokenize(String text) {
+  public List<NGramToken> tokenize(String text) {
     return tokenize(wordTokenizer.tokenize(text));
   }
 
   @Override
-  public List<LexicalNGramToken> tokenize(List<? extends Token> tokens) {
+  public List<NGramToken> tokenize(List<? extends Token> tokens) {
     // restore order of the text by token appearances
     var tokensInOrder = tokens.stream()
         .map(token -> token.positions().stream()
@@ -76,7 +75,7 @@ public class DefaultLexicalNGramTokenizer implements LexicalNGramTokenizer {
     }
 
     return result.entrySet().stream()
-        .map(e -> new LexicalNGramToken(e.getKey().first(), e.getKey().second(), e.getValue()))
+        .map(e -> new NGramToken(e.getKey().first(), e.getKey().second(), e.getValue()))
         .toList();
   }
 }
