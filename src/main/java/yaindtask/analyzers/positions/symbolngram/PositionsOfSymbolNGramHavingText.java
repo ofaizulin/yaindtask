@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 
-public class PositionsOfSymbolNgram implements Analyzer {
+public class PositionsOfSymbolNGramHavingText implements Analyzer {
 
   private final String textToFind;
 
-  public PositionsOfSymbolNgram(String textToFind) {
+  public PositionsOfSymbolNGramHavingText(String textToFind) {
     this.textToFind = textToFind;
   }
 

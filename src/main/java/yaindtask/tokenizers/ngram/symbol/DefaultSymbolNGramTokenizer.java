@@ -5,10 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import yaindtask.tokenizers.Token;
 import yaindtask.tokenizers.TokenPosition;
-import yaindtask.tokenizers.Tokenizer;
 import yaindtask.tokenizers.ngram.NGramToken;
 
-public class DefaultSymbolNGramTokenizer implements Tokenizer {
+public class DefaultSymbolNGramTokenizer implements SymbolNGramTokenizer {
 
   private final int maxN;
 
