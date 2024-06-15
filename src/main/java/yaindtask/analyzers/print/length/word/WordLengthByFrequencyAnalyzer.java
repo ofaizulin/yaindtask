@@ -42,7 +42,7 @@ public class WordLengthByFrequencyAnalyzer implements Analyzer {
       }
     }
     return new AnalysisResult(new String[]{
-        "Word", "Frequenccy", "Length"
+        "Word", "Frequency", "Length"
     }, result);
   }
 }

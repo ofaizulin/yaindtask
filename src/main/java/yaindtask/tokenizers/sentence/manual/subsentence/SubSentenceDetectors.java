@@ -6,7 +6,7 @@ import java.util.List;
 public class SubSentenceDetectors {
 
   private static final char[] SINGLE_CHAR_CASES = new char[]{
-      '"'
+      '"' // EN
   };
 
   private static final char[][] DOUBLE_CHAR_CASES = new char[][]{
