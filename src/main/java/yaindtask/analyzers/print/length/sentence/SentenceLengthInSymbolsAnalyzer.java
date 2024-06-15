@@ -1,6 +1,5 @@
 package yaindtask.analyzers.print.length.sentence;
 
-import java.util.ArrayList;
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.sentence.SentenceTokenizer;
@@ -12,14 +11,10 @@ public class SentenceLengthInSymbolsAnalyzer implements Analyzer {
 
   @Override
   public AnalysisResult analyze(String text) {
-    var sentences = sentenceTokenizer.tokenize(text);
-    var data = new ArrayList<String[]>();
-//    for (var sentence : sentences) {
-//      data.add(new String[]{sentence, String.valueOf(sentence.length())});
-//    }
+    var data = sentenceTokenizer.tokenize(text).stream()
+        .map(t -> new String[]{t.text(), String.valueOf(text.length())})
+        .toList();
 
-    return new AnalysisResult(new String[]{
-        "Sentence", "Symbol Count"
-    }, data);
+    return new AnalysisResult(new String[]{"Sentence", "Symbol Count"}, data);
   }
 }
