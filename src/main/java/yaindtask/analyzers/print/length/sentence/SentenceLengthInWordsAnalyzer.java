@@ -15,13 +15,13 @@ public class SentenceLengthInWordsAnalyzer implements Analyzer {
 
   @Override
   public AnalysisResult analyze(String text) {
-    var sentences = sentenceTokenizer.tokenize(text);
+//    var sentences = sentenceTokenizer.tokenize(text);
     var data = new ArrayList<String[]>();
-
-    for (var sentence : sentences) {
-      var words = wordTokenizer.tokenize(sentence);
-      data.add(new String[]{sentence, String.valueOf(words.size())});
-    }
+//
+//    for (var sentence : sentences) {
+//      var words = wordTokenizer.tokenize(sentence);
+//      data.add(new String[]{sentence, String.valueOf(words.size())});
+//    }
 
     return new AnalysisResult(new String[]{
         "Sentence", "Word Count"

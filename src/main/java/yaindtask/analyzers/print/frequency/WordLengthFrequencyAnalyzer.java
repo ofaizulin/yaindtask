@@ -1,9 +1,8 @@
 package yaindtask.analyzers.print.frequency;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
-import yaindtask.analyzers.Analyzer;
 import yaindtask.analyzers.AnalysisResult;
+import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.sentence.SentenceTokenizer;
 import yaindtask.tokenizers.sentence.manual.ManualSentenceTokenizer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
@@ -23,20 +22,20 @@ public class WordLengthFrequencyAnalyzer implements Analyzer {
   @Override
   public AnalysisResult analyze(String text) {
 
-    var wordMap = new TreeMap<String, Long>();
-
-    for (var sentence : sentenceTokenizer.tokenize(text)) {
-      for (var word : wordTokenizer.tokenize(sentence)) {
-        if (word.length() == length) {
-          wordMap.compute(word, (s, count) -> count == null ? 1 : count + 1);
-        }
-      }
-    }
+//    var wordMap = new TreeMap<String, Long>();
+//
+//    for (var sentence : sentenceTokenizer.tokenize(text)) {
+//      for (var word : wordTokenizer.tokenize(sentence)) {
+//        if (word.length() == length) {
+//          wordMap.compute(word, (s, count) -> count == null ? 1 : count + 1);
+//        }
+//      }
+//    }
 
     var data = new ArrayList<String[]>();
-    for (var entry : wordMap.entrySet()) {
-      data.add(new String[]{entry.getKey(), String.valueOf(entry.getValue())});
-    }
+//    for (var entry : wordMap.entrySet()) {
+//      data.add(new String[]{entry.getKey(), String.valueOf(entry.getValue())});
+//    }
 
     return new AnalysisResult(new String[]{
         "Word", "Frequency"

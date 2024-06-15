@@ -15,12 +15,12 @@ public class SentenceLengthInLettersAnalyzer implements Analyzer {
     var sentences = sentenceTokenizer.tokenize(text);
 
     var data = new ArrayList<String[]>();
-    for (var sentence : sentences) {
-      data.add(new String[]{
-          sentence,
-          String.valueOf(sentence.chars().filter(Character::isLetter).count())
-      });
-    }
+//    for (var sentence : sentences) {
+//      data.add(new String[]{
+//          sentence,
+//          String.valueOf(sentence.chars().filter(Character::isLetter).count())
+//      });
+//    }
 
     return new AnalysisResult(new String[]{
         "Sentence", "Letter Count"

@@ -14,9 +14,9 @@ public class SentenceLengthInSymbolsAnalyzer implements Analyzer {
   public AnalysisResult analyze(String text) {
     var sentences = sentenceTokenizer.tokenize(text);
     var data = new ArrayList<String[]>();
-    for (var sentence : sentences) {
-      data.add(new String[]{sentence, String.valueOf(sentence.length())});
-    }
+//    for (var sentence : sentences) {
+//      data.add(new String[]{sentence, String.valueOf(sentence.length())});
+//    }
 
     return new AnalysisResult(new String[]{
         "Sentence", "Symbol Count"

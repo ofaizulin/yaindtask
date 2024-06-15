@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Tokenizer {
 
-  List<String> tokenize(String text);
+  List<Token> tokenize(String text);
 }

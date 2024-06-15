@@ -1,31 +1,32 @@
 package yaindtask.tokenizers.word;
 
 import java.util.List;
-import yaindtask.tokenizers.word.filter.WordTokenizerFilter;
-import yaindtask.tokenizers.word.filter.impl.RemoveLeadingAndTailingSymbolsWordTokenizerFilter;
-import yaindtask.tokenizers.word.filter.impl.SplitByWhitespaceWordTokenizerFilter;
+import yaindtask.tokenizers.Token;
+import yaindtask.tokenizers.TokenizerUtils;
+import yaindtask.tokenizers.filter.TokenFilter;
+import yaindtask.tokenizers.word.filter.WordDetectionTokenFilter;
 
 public class DefaultWordTokenizer implements WordTokenizer {
 
-  private final List<WordTokenizerFilter> filters;
+  private final List<TokenFilter> filters;
 
   public DefaultWordTokenizer() {
-    this(List.of(
-        new SplitByWhitespaceWordTokenizerFilter(),
-        new RemoveLeadingAndTailingSymbolsWordTokenizerFilter()
-    ));
+    this(List.of(new WordDetectionTokenFilter()));
   }
 
-  public DefaultWordTokenizer(List<WordTokenizerFilter> filters) {
+  public DefaultWordTokenizer(List<TokenFilter> filters) {
     this.filters = filters;
   }
 
-  @Override
-  public List<String> tokenize(String text) {
-    var result = List.of(text);
+  public List<Token> tokenize(String text) {
+    return tokenize(new Token(text));
+  }
+
+  public List<Token> tokenize(Token token) {
+    var result = List.of(token);
     for (var filter : filters) {
-      result = filter.filter(result);
+      result = filter.filter(token);
     }
-    return result;
+    return TokenizerUtils.deduplicate(result);
   }
 }
