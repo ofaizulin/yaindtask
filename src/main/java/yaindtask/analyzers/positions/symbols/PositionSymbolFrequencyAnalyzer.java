@@ -1,5 +1,7 @@
 package yaindtask.analyzers.positions.symbols;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import java.util.ArrayList;
 import java.util.TreeMap;
 import yaindtask.analyzers.AnalysisResult;
@@ -33,6 +35,6 @@ public class PositionSymbolFrequencyAnalyzer implements Analyzer {
       }
     }
 
-    return new AnalysisResult(new String[]{"Symbol", "Symbol Code", "Frequency"}, result);
+    return of("Symbol", "Symbol Code", "Frequency", result);
   }
 }

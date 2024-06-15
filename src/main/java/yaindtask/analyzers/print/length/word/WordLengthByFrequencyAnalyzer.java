@@ -1,5 +1,7 @@
 package yaindtask.analyzers.print.length.word;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
@@ -30,6 +32,6 @@ public class WordLengthByFrequencyAnalyzer implements Analyzer {
         })
         .toList();
 
-    return new AnalysisResult(new String[]{"Word", "Frequency", "Length"}, data);
+    return of("Word", "Frequency", "Length", data);
   }
 }

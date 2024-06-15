@@ -1,5 +1,7 @@
 package yaindtask.analyzers.positions.symbols;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import java.util.ArrayList;
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
@@ -22,6 +24,6 @@ public class PositionsSymbolAnalyzer implements Analyzer {
       }
     }
 
-    return new AnalysisResult(new String[]{"Position"}, positions);
+    return of("Position", positions);
   }
 }

@@ -1,5 +1,6 @@
 package yaindtask.analyzers.positions.sentences.length;
 
+import static yaindtask.analyzers.AnalysisResult.of;
 import static yaindtask.analyzers.util.AnalyzerFunctions.tokenPositions;
 
 import java.util.ArrayList;
@@ -32,6 +33,6 @@ public class PositionOfSentencesHavingWordCount implements Analyzer {
       }
     }
 
-    return new AnalysisResult(new String[]{"Sentence", "Positions"}, result);
+    return of("Sentence", "Positions", result);
   }
 }

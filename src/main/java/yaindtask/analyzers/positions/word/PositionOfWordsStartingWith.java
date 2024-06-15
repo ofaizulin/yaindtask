@@ -1,5 +1,6 @@
 package yaindtask.analyzers.positions.word;
 
+import static yaindtask.analyzers.AnalysisResult.of;
 import static yaindtask.analyzers.util.AnalyzerFunctions.tokenPositions;
 
 import yaindtask.analyzers.AnalysisResult;
@@ -27,6 +28,6 @@ public class PositionOfWordsStartingWith implements Analyzer {
         .filter(t -> t.text().startsWith(startWithStr))
         .map(t -> new String[]{t.text(), tokenPositions(t)})
         .toList();
-    return new AnalysisResult(new String[]{"Word", "Positions"}, data);
+    return of("Word", "Positions", data);
   }
 }

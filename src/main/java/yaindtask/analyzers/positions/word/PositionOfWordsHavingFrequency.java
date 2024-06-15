@@ -1,5 +1,6 @@
 package yaindtask.analyzers.positions.word;
 
+import static yaindtask.analyzers.AnalysisResult.of;
 import static yaindtask.analyzers.util.AnalyzerFunctions.tokenPositions;
 
 import yaindtask.analyzers.AnalysisResult;
@@ -35,6 +36,6 @@ public class PositionOfWordsHavingFrequency implements Analyzer {
             tokenPositions(t)
         })
         .toList();
-    return new AnalysisResult(new String[]{"Word", "Frequency", "Positions"}, data);
+    return of("Word", "Frequency", "Positions", data);
   }
 }

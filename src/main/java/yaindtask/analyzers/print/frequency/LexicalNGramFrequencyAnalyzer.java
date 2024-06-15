@@ -1,6 +1,8 @@
 package yaindtask.analyzers.print.frequency;
 
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.lexicalngram.LexicalNGramTokenizer;
@@ -23,6 +25,6 @@ public class LexicalNGramFrequencyAnalyzer implements Analyzer {
         .map(t -> new String[]{t.text(), String.valueOf(t.positions().size())})
         .toList();
 
-    return new AnalysisResult(new String[]{"Lexical ngram", "Frequency"}, data);
+    return of("Lexical ngram", "Frequency", data);
   }
 }

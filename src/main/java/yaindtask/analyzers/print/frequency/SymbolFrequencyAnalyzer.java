@@ -1,5 +1,7 @@
 package yaindtask.analyzers.print.frequency;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import java.util.ArrayList;
 import java.util.TreeMap;
 import yaindtask.analyzers.AnalysisResult;
@@ -21,8 +23,6 @@ public class SymbolFrequencyAnalyzer implements Analyzer {
       data.add(new String[]{str, String.valueOf(code), String.valueOf(frequency)});
     }
 
-    return new AnalysisResult(new String[]{
-        "Symbol", "Code", "Count"
-    }, data);
+    return of("Symbol", "Code", "Count", data);
   }
 }

@@ -1,5 +1,7 @@
 package yaindtask.analyzers.positions.sentences.length;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.analyzers.util.AnalyzerFunctions;
@@ -30,6 +32,6 @@ public class PositionOfSentencesHavingLetterCount implements Analyzer {
         .map(st -> new String[]{st.text(), AnalyzerFunctions.tokenPositions(st)})
         .toList();
 
-    return new AnalysisResult(new String[]{"Sentence", "Positions"}, data);
+    return of("Sentence", "Positions", data);
   }
 }

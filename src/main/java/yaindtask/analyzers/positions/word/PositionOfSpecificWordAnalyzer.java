@@ -1,5 +1,7 @@
 package yaindtask.analyzers.positions.word;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.analyzers.util.AnalyzerFunctions;
@@ -28,6 +30,6 @@ public class PositionOfSpecificWordAnalyzer implements Analyzer {
         .map(t -> new String[]{t.text(), AnalyzerFunctions.tokenPositions(t)})
         .toList();
 
-    return new AnalysisResult(new String[]{"Word", "Positions"}, data);
+    return of("Word", "Positions", data);
   }
 }

@@ -1,5 +1,7 @@
 package yaindtask.analyzers.print.length.sentence;
 
+import static yaindtask.analyzers.AnalysisResult.of;
+
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.sentence.SentenceTokenizer;
@@ -15,6 +17,6 @@ public class SentenceLengthInSymbolsAnalyzer implements Analyzer {
         .map(t -> new String[]{t.text(), String.valueOf(text.length())})
         .toList();
 
-    return new AnalysisResult(new String[]{"Sentence", "Symbol Count"}, data);
+    return of("Sentence", "Symbol Count", data);
   }
 }
