@@ -8,16 +8,16 @@ import yaindtask.analyzers.util.AnalyzerFunctions;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class PositionOfSpecificWordAnalyzer implements Analyzer {
+public class PositionsOfSpecificWordAnalyzer implements Analyzer {
 
   private final String word;
   private final WordTokenizer wordTokenizer;
 
-  public PositionOfSpecificWordAnalyzer(String word) {
+  public PositionsOfSpecificWordAnalyzer(String word) {
     this(word, new DefaultWordTokenizer());
   }
 
-  public PositionOfSpecificWordAnalyzer(String text, WordTokenizer wordTokenizer) {
+  public PositionsOfSpecificWordAnalyzer(String text, WordTokenizer wordTokenizer) {
     this.word = text;
     this.wordTokenizer = wordTokenizer;
   }

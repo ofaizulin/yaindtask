@@ -8,16 +8,16 @@ import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class PositionOfWordsStartingWith implements Analyzer {
+public class PositionsOfWordsStartingWithText implements Analyzer {
 
   private final WordTokenizer wordTokenizer;
   private final String startWithStr;
 
-  public PositionOfWordsStartingWith(String startWithStr) {
+  public PositionsOfWordsStartingWithText(String startWithStr) {
     this(new DefaultWordTokenizer(), startWithStr);
   }
 
-  public PositionOfWordsStartingWith(WordTokenizer wordTokenizer, String startWithStr) {
+  public PositionsOfWordsStartingWithText(WordTokenizer wordTokenizer, String startWithStr) {
     this.wordTokenizer = wordTokenizer;
     this.startWithStr = startWithStr;
   }

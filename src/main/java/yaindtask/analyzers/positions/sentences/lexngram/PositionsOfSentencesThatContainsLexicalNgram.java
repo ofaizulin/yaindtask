@@ -13,7 +13,7 @@ import yaindtask.tokenizers.sentence.manual.ManualSentenceTokenizer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class PositionOfSentencesThatContainsLexicalNgram implements Analyzer {
+public class PositionsOfSentencesThatContainsLexicalNgram implements Analyzer {
 
   private final SentenceTokenizer sentenceTokenizer = new ManualSentenceTokenizer();
   private final WordTokenizer wordTokenizer = new DefaultWordTokenizer();
@@ -21,7 +21,7 @@ public class PositionOfSentencesThatContainsLexicalNgram implements Analyzer {
 
   private final String lexicalNgramToFind;
 
-  public PositionOfSentencesThatContainsLexicalNgram(String lexicalNgramToFind) {
+  public PositionsOfSentencesThatContainsLexicalNgram(String lexicalNgramToFind) {
     this.lexicalNgramToFind = lexicalNgramToFind;
   }
 

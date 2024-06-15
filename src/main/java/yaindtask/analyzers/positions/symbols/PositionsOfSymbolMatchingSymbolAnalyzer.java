@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 
-public class PositionsSymbolAnalyzer implements Analyzer {
+public class PositionsOfSymbolMatchingSymbolAnalyzer implements Analyzer {
 
   private final char character;
 
-  public PositionsSymbolAnalyzer(char character) {
+  public PositionsOfSymbolMatchingSymbolAnalyzer(char character) {
     this.character = character;
   }
 

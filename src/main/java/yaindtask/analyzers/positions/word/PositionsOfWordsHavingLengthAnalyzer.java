@@ -8,16 +8,16 @@ import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class PositionOfWordsHavingLengthAnalyzer implements Analyzer {
+public class PositionsOfWordsHavingLengthAnalyzer implements Analyzer {
 
   private final WordTokenizer wordTokenizer;
   private final int wordLength;
 
-  public PositionOfWordsHavingLengthAnalyzer(int wordLength) {
+  public PositionsOfWordsHavingLengthAnalyzer(int wordLength) {
     this(new DefaultWordTokenizer(), wordLength);
   }
 
-  public PositionOfWordsHavingLengthAnalyzer(WordTokenizer wordTokenizer, int wordLength) {
+  public PositionsOfWordsHavingLengthAnalyzer(WordTokenizer wordTokenizer, int wordLength) {
     this.wordTokenizer = wordTokenizer;
     this.wordLength = wordLength;
   }

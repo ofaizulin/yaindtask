@@ -8,17 +8,17 @@ import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class PositionOfWordsHavingFrequency implements Analyzer {
+public class PositionsOfWordsHavingFrequency implements Analyzer {
 
   private final WordTokenizer wordTokenizer;
   private final int minFrequency;
   private final int maxFrequency;
 
-  public PositionOfWordsHavingFrequency(int minFrequency, int maxFrequency) {
+  public PositionsOfWordsHavingFrequency(int minFrequency, int maxFrequency) {
     this(new DefaultWordTokenizer(), minFrequency, maxFrequency);
   }
 
-  public PositionOfWordsHavingFrequency(WordTokenizer wordTokenizer, int minFrequency,
+  public PositionsOfWordsHavingFrequency(WordTokenizer wordTokenizer, int minFrequency,
       int maxFrequency) {
     this.wordTokenizer = wordTokenizer;
     this.minFrequency = minFrequency;

@@ -7,12 +7,12 @@ import java.util.TreeMap;
 import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 
-public class PositionSymbolFrequencyAnalyzer implements Analyzer {
+public class PositionsOfSymbolHavingFrequencyAnalyzer implements Analyzer {
 
   private final int minFrequency;
   private final int maxFrequency;
 
-  public PositionSymbolFrequencyAnalyzer(int minFrequency, int maxFrequency) {
+  public PositionsOfSymbolHavingFrequencyAnalyzer(int minFrequency, int maxFrequency) {
     this.minFrequency = minFrequency;
     this.maxFrequency = maxFrequency;
   }

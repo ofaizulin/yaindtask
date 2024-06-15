@@ -20,7 +20,7 @@ public class PositionsOfLexNGramThatMatchText implements Analyzer {
   @Override
   public AnalysisResult analyze(String text) {
     var data = tokenizer.tokenize(text).stream()
-        .filter(lt -> lt.text().equals(text))
+        .filter(lt -> lt.text().equals(this.text))
         .map(lt -> new String[]{
             lt.text(),
             AnalyzerFunctions.tokenPositions(lt)

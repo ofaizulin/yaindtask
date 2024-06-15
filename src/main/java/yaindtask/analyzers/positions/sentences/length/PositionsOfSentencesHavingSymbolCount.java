@@ -8,16 +8,16 @@ import yaindtask.analyzers.util.AnalyzerFunctions;
 import yaindtask.tokenizers.sentence.SentenceTokenizer;
 import yaindtask.tokenizers.sentence.manual.ManualSentenceTokenizer;
 
-public class PositionOfSentencesHavingSymbolCount implements Analyzer {
+public class PositionsOfSentencesHavingSymbolCount implements Analyzer {
 
   private final SentenceTokenizer sentenceTokenizer;
   private final int symbolCount;
 
-  public PositionOfSentencesHavingSymbolCount(int symbolCount) {
+  public PositionsOfSentencesHavingSymbolCount(int symbolCount) {
     this(new ManualSentenceTokenizer(), symbolCount);
   }
 
-  public PositionOfSentencesHavingSymbolCount(SentenceTokenizer sentenceTokenizer,
+  public PositionsOfSentencesHavingSymbolCount(SentenceTokenizer sentenceTokenizer,
       int symbolCount) {
     this.sentenceTokenizer = sentenceTokenizer;
     this.symbolCount = symbolCount;

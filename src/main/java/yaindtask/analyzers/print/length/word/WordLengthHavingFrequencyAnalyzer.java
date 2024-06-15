@@ -7,14 +7,14 @@ import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class WordLengthByFrequencyAnalyzer implements Analyzer {
+public class WordLengthHavingFrequencyAnalyzer implements Analyzer {
 
   private final WordTokenizer wordTokenizer = new DefaultWordTokenizer();
 
   private final int minFrequency;
   private final int maxFrequency;
 
-  public WordLengthByFrequencyAnalyzer(int minFrequency, int maxFrequency) {
+  public WordLengthHavingFrequencyAnalyzer(int minFrequency, int maxFrequency) {
     this.minFrequency = minFrequency;
     this.maxFrequency = maxFrequency;
   }

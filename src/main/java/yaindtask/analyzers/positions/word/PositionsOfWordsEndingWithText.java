@@ -6,19 +6,19 @@ import yaindtask.analyzers.util.AnalyzerFunctions;
 import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
-public class PositionOfWordsContainingText implements Analyzer {
+public class PositionsOfWordsEndingWithText implements Analyzer {
 
   private final WordTokenizer wordTokenizer = new DefaultWordTokenizer();
-  private final String textToContain;
+  private final String textToEndWith;
 
-  public PositionOfWordsContainingText(String textToContain) {
-    this.textToContain = textToContain;
+  public PositionsOfWordsEndingWithText(String textToEndWith) {
+    this.textToEndWith = textToEndWith;
   }
 
   @Override
   public AnalysisResult analyze(String text) {
     var data = wordTokenizer.tokenize(text).stream()
-        .filter(t -> t.text().contains(this.textToContain))
+        .filter(t -> t.text().endsWith(this.textToEndWith))
         .map(t -> new String[]{
             t.text(),
             AnalyzerFunctions.tokenPositions(t)
