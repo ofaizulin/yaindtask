@@ -2,19 +2,23 @@ package yaindtask.util.tuples;
 
 public record T2<L, R>(L left, R right) {
 
-  L key() {
+  public L key() {
     return left;
   }
 
-  L first() {
+  public L first() {
     return left;
   }
 
-  R value() {
+  public R value() {
     return right;
   }
 
-  R last() {
+  public R second() {
+    return right;
+  }
+
+  public R last() {
     return right;
   }
 
