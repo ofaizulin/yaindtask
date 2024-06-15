@@ -6,13 +6,13 @@ import yaindtask.analyzers.AnalysisResult;
 import yaindtask.analyzers.Analyzer;
 import yaindtask.tokenizers.sentence.SentenceTokenizer;
 import yaindtask.tokenizers.sentence.manual.ManualSentenceTokenizer;
-import yaindtask.tokenizers.word.RegExpWordTokenizer;
+import yaindtask.tokenizers.word.DefaultWordTokenizer;
 import yaindtask.tokenizers.word.WordTokenizer;
 
 public class WordLengthByFrequencyAnalyzer implements Analyzer {
 
   private final SentenceTokenizer sentenceTokenizer = new ManualSentenceTokenizer();
-  private final WordTokenizer wordTokenizer = new RegExpWordTokenizer();
+  private final WordTokenizer wordTokenizer = new DefaultWordTokenizer();
 
   private final int minFrequency;
   private final int maxFrequency;
