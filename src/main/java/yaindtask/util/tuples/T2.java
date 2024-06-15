@@ -1,28 +1,8 @@
 package yaindtask.util.tuples;
 
-public record T2<L, R>(L left, R right) {
+public record T2<F, S>(F first, S second) {
 
-  public L key() {
-    return left;
-  }
-
-  public L first() {
-    return left;
-  }
-
-  public R value() {
-    return right;
-  }
-
-  public R second() {
-    return right;
-  }
-
-  public R last() {
-    return right;
-  }
-
-  public static <L, R> T2<L, R> of(L left, R right) {
-    return new T2<>(left, right);
+  public static <F, S> T2<F, S> of(F first, S second) {
+    return new T2<>(first, second);
   }
 }

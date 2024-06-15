@@ -44,7 +44,7 @@ public class DefaultLexicalNGramTokenizer implements LexicalNGramTokenizer {
             .map(p -> T2.of(token.text(), p))
             .toList())
         .flatMap(Collection::stream)
-        .sorted(Comparator.comparingInt(o -> o.right().startInclusive()))
+        .sorted(Comparator.comparingInt(o -> o.second().startInclusive()))
         .toList();
 
     // build lexical n-grams up to N level
@@ -59,10 +59,10 @@ public class DefaultLexicalNGramTokenizer implements LexicalNGramTokenizer {
           continue;
         }
 
-        var text = toJoin.stream().map(T2::left).collect(Collectors.joining(" "));
+        var text = toJoin.stream().map(T2::first).collect(Collectors.joining(" "));
         var n = toJoin.size();
-        var position = new TokenPosition(toJoin.getFirst().right().startInclusive(),
-            toJoin.getLast().right().endExclusive());
+        var position = new TokenPosition(toJoin.getFirst().second().startInclusive(),
+            toJoin.getLast().second().endExclusive());
         result.compute(T2.of(text, n),
             (stringIntegerT2, tokenPositions) -> {
               if (tokenPositions == null) {

@@ -16,8 +16,8 @@ class DefaultWordTokenizerTest {
   @ParameterizedTest
   @MethodSource("tokenize_source")
   void tokenize(T2<Token, List<Token>> example) {
-    var result = tokenizer.tokenize(example.left());
-    assertEquals(example.right(), result);
+    var result = tokenizer.tokenize(example.first());
+    assertEquals(example.second(), result);
   }
 
   static List<T2<Token, List<Token>>> tokenize_source() {
