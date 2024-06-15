@@ -37,4 +37,23 @@ class DefaultLexicalNGramTokenizerTest {
 
     assertEquals(expected, tokenizer.tokenize(input));
   }
+
+  @Test
+  void repeatingTokens() {
+    // text = love I love
+    var tokenizer = new DefaultLexicalNGramTokenizer(2);
+    var result = tokenizer.tokenize(List.of(
+        new Token("love", new TokenPosition(0, 4), new TokenPosition(7, 11)),
+        new Token("I", 5, 6)
+    ));
+
+    var expected = List.of(
+        new LexicalNGramToken("love", 1, new TokenPosition(0, 4), new TokenPosition(7, 11)),
+        new LexicalNGramToken("love I", 2, new TokenPosition(0, 6)),
+        new LexicalNGramToken("I", 1, new TokenPosition(5, 6)),
+        new LexicalNGramToken("I love", 2, new TokenPosition(5, 11))
+    );
+
+    assertEquals(expected, result);
+  }
 }

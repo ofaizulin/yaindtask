@@ -19,6 +19,11 @@ public class LexicalNGramToken extends Token {
     this.n = n;
   }
 
+  public LexicalNGramToken(String token, int n, TokenPosition... position) {
+    super(token, position);
+    this.n = n;
+  }
+
   public LexicalNGramToken(String token, int n, List<TokenPosition> positions) {
     super(token, positions);
     this.n = n;
