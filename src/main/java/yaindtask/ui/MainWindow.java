@@ -29,6 +29,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -612,7 +613,7 @@ public class MainWindow {
    */
   private void initialize() {
     frame = new JFrame();
-    frame.setBounds(100, 100, 1220, 365);
+    frame.setBounds(100, 100, 1220, 565);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     mPath = new Chooser().getFilePath();
@@ -663,6 +664,7 @@ public class MainWindow {
 
     var textViewer = new JTextArea();
     textViewer.setText(mText);
+    textViewer.setEditable(false);
     tabbedPane.addTab("File Content", new JScrollPane(textViewer));
 
     JLabel label = new JLabel("Обрати :");
@@ -728,8 +730,8 @@ public class MainWindow {
                         .addGap(18)
                         .addComponent(label)))
                 .addGap(26)
-                .addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 148,
-                    GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 350,
+                    Short.MAX_VALUE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(groupLayout.createSequentialGroup()
                 .addContainerGap(114, Short.MAX_VALUE)
@@ -902,13 +904,21 @@ public class MainWindow {
       return;
     }
 
+    var resultTabIndex = tabbedPane.indexOfTab("Результат");
+    if (resultTabIndex != -1) {
+      tabbedPane.remove(resultTabIndex);
+    }
+
+    JProgressBar progressBar = new JProgressBar(0, 100);
+    progressBar.setIndeterminate(true);
+    tabbedPane.addTab("Працюю", progressBar);
+    tabbedPane.setSelectedIndex(tabbedPane.indexOfTab("Працюю"));
+
     executor.execute(() -> {
       var analysisResult = analyzer.analyze(mText);
       SwingUtilities.invokeLater(() -> {
-        var resultTabIndex = tabbedPane.indexOfTab("Результат");
-        if (resultTabIndex != -1) {
-          tabbedPane.remove(resultTabIndex);
-        }
+
+        tabbedPane.remove(tabbedPane.indexOfTab("Працюю"));
 
         var tableModel = new DefaultTableModel();
         Arrays.stream(analysisResult.getHeaders()).forEach(tableModel::addColumn);
