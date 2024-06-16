@@ -5,6 +5,9 @@ import java.util.List;
 import yaindtask.tokenizers.Token;
 import yaindtask.tokenizers.TokenizerUtils;
 import yaindtask.tokenizers.filter.TokenFilter;
+import yaindtask.tokenizers.word.filter.ChineseWordDetectionTokenFilter;
+import yaindtask.tokenizers.word.filter.JapaneseWordDetectionTokenFilter;
+import yaindtask.tokenizers.word.filter.KoreanWordDetectionTokenFilter;
 import yaindtask.tokenizers.word.filter.WordDetectionTokenFilter;
 
 public class DefaultWordTokenizer implements WordTokenizer {
@@ -12,7 +15,12 @@ public class DefaultWordTokenizer implements WordTokenizer {
   private final List<TokenFilter> filters;
 
   public DefaultWordTokenizer() {
-    this(List.of(new WordDetectionTokenFilter()));
+    this(List.of(
+        new WordDetectionTokenFilter(),
+        new JapaneseWordDetectionTokenFilter(),
+        new KoreanWordDetectionTokenFilter(),
+        new ChineseWordDetectionTokenFilter()
+    ));
   }
 
   public DefaultWordTokenizer(List<TokenFilter> filters) {
