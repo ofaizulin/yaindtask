@@ -91,7 +91,7 @@ public class ManualSentenceTokenizer implements SentenceTokenizer {
     return switch (chars[index - 1]) {
       case '!', '?' -> true;
       case '.' -> !exclusion.matches(chars, index - 1);
-      case '。' -> !exclusion.matches(chars, index - 1); // Japanese
+      case '。' -> !exclusion.matches(chars, index - 1); // Japanese, Chinese
       default -> false;
     };
   }
